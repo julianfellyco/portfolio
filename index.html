@@ -5,23 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Julian Fellyco – Developer Portfolio</title>
   <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --accent-color: #0077b5;
+      --card-bg: white;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #f1f1f1;
+      --card-bg: #1e1e1e;
+    }
+
     * {
       box-sizing: border-box;
+      transition: all 0.3s ease;
     }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.6;
     }
 
     header {
-      background-color: #0077b5;
+      background-color: var(--accent-color);
       color: white;
       padding: 40px 20px;
       text-align: center;
+      position: relative;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     .container {
@@ -35,25 +62,31 @@
     }
 
     h2 {
-      color: #0077b5;
+      color: var(--accent-color);
     }
 
     .projects .project {
-      background-color: white;
+      background-color: var(--card-bg);
       border-radius: 8px;
       padding: 15px;
       margin-bottom: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .project a {
-      color: #0077b5;
+      color: var(--accent-color);
       text-decoration: none;
     }
 
     .contact a {
       text-decoration: none;
-      color: #0077b5;
+      color: var(--accent-color);
     }
 
     footer {
@@ -61,6 +94,10 @@
       padding: 20px;
       background-color: #eee;
       font-size: 14px;
+    }
+
+    body.dark footer {
+      background-color: #222;
     }
 
     @media (max-width: 600px) {
@@ -74,6 +111,7 @@
   <header>
     <h1>Julian Fellyco</h1>
     <p>Aspiring Front-End Developer & Fast Learner</p>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
   </header>
 
   <div class="container">
@@ -106,12 +144,18 @@
       <h2>Contact</h2>
       <p>Email: <a href="mailto:julianfellyco85@gmail.com">julianfellyco85@gmail.com</a></p>
       <p>GitHub: <a href="https://github.com/julianfellyco" target="_blank">github.com/julianfellyco</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/julian-f-097161141/" target="_blank">linkedin.com/in/julianfellyco</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/julian-f-097161141/" target="_blank">linkedin.com/in/julian-f-097161141</a></p>
     </section>
   </div>
 
   <footer>
     &copy; 2025 Julian Fellyco
   </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
 </body>
 </html>
