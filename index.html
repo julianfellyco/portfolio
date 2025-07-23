@@ -1,161 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Julian Fellyco – Developer Portfolio</title>
-  <style>
-    :root {
-      --bg-color: #f9f9f9;
-      --text-color: #333;
-      --accent-color: #0077b5;
-      --card-bg: white;
-    }
-
-    body.dark {
-      --bg-color: #121212;
-      --text-color: #f1f1f1;
-      --card-bg: #1e1e1e;
-    }
-
-    * {
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: var(--accent-color);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      position: relative;
-    }
-
-    .toggle-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-
-    h2 {
-      color: var(--accent-color);
-    }
-
-    .projects .project {
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .project:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .project a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    .contact a {
-      text-decoration: none;
-      color: var(--accent-color);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      font-size: 14px;
-    }
-
-    body.dark footer {
-      background-color: #222;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 24px;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Julian Fellyco – Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
 </head>
-<body>
-  <header>
-    <h1>Julian Fellyco</h1>
-    <p>Aspiring Front-End Developer & Fast Learner</p>
-    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold text-blue-600">Julian Fellyco</h1>
+    <p class="text-lg mt-2">Frontend Developer 🚀 | WHV Australia</p>
+    <a href="#projects" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Lihat Proyek</a>
   </header>
 
-  <div class="container">
-    <section class="projects">
-      <h2>My Projects</h2>
+  <!-- About Me -->
+  <section class="max-w-2xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-semibold mb-4">Tentang Saya</h2>
+    <p>Saya Julian, umur 25, kerja di Australia, dan belajar frontend development secara mandiri. Target saya hidup bebas finansial lewat skill teknologi.</p>
+  </section>
 
-      <div class="project">
-        <h3>Online Resume</h3>
-        <p>A personal resume built with HTML, CSS, and JavaScript.</p>
-        <a href="https://julianfellyco.github.io/resume/" target="_blank">View Project</a> |
-        <a href="https://github.com/julianfellyco/resume" target="_blank">Source Code</a>
+  <!-- Projects -->
+  <section id="projects" class="max-w-4xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-semibold mb-4">Proyek Saya</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Project 1 -->
+      <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
+        <h3 class="text-xl font-bold mb-2">To-Do List App</h3>
+        <p class="mb-2">Aplikasi pencatat tugas dengan localStorage dan dark mode.</p>
+        <a href="https://julianfellyco.github.io/to-do-list-web-app/" target="_blank" class="text-blue-500 hover:underline">Lihat Project →</a>
       </div>
 
-      <div class="project">
-        <h3>Coming Soon: Portfolio Gallery</h3>
-        <p>Will showcase future frontend projects and interactive UI components.</p>
+      <!-- Project 2 -->
+      <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
+        <h3 class="text-xl font-bold mb-2">Expense Tracker</h3>
+        <p class="mb-2">Aplikasi pelacak pengeluaran dengan chart & dark mode.</p>
+        <a href="https://julianfellyco.github.io/expense_tracker/" target="_blank" class="text-blue-500 hover:underline">Lihat Project →</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        I am a 25-year-old from Indonesia, currently based in Australia with a Working Holiday Visa.
-        I’m passionate about learning tech, especially frontend web development. With a background
-        in Informatics Engineering, I’m transitioning from physical work into digital career paths.
-      </p>
-    </section>
+  <!-- Contact -->
+  <section class="max-w-2xl mx-auto px-4 py-10 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Kontak</h2>
+    <p>Email: <a href="mailto:julianfellyco@gmail.com" class="text-blue-400 hover:underline">julianfellyco@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/julianfellyco" class="text-blue-400 hover:underline" target="_blank">github.com/julianfellyco</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/julian-f-097161141" class="text-blue-400 hover:underline" target="_blank">linkedin.com/in/julian</a></p>
+  </section>
 
-    <section class="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:julianfellyco85@gmail.com">julianfellyco85@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/julianfellyco" target="_blank">github.com/julianfellyco</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/julian-f-097161141/" target="_blank">linkedin.com/in/julian-f-097161141</a></p>
-    </section>
-  </div>
-
-  <footer>
-    &copy; 2025 Julian Fellyco
+  <!-- Footer -->
+  <footer class="text-center text-sm py-4 text-gray-500">
+    © 2025 Julian Fellyco. All rights reserved.
   </footer>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark');
-    }
-  </script>
 </body>
 </html>
