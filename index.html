@@ -8,24 +8,60 @@
   <script>
     tailwind.config = { darkMode: 'class' }
   </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
 
-  <!-- Header -->
-  <header class="text-center py-10">
+  <!-- 🌙 Dark Mode Toggle -->
+  <button id="theme-toggle" class="absolute top-4 right-4 bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded text-sm">
+    🌙 Dark Mode
+  </button>
+
+  <!-- Header / Landing -->
+  <header class="text-center py-20 fade-in">
     <h1 class="text-4xl font-bold text-blue-600">Julian Fellyco</h1>
     <p class="text-lg mt-2">Frontend Developer 🚀 | WHV Australia</p>
-    <a href="#projects" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Lihat Proyek</a>
+    <a href="#projects" class="mt-6 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Lihat Proyek</a>
   </header>
 
-  <!-- About Me -->
-  <section class="max-w-2xl mx-auto px-4 py-10">
+  <!-- About -->
+  <section class="max-w-2xl mx-auto px-4 py-16 fade-in">
     <h2 class="text-2xl font-semibold mb-4">Tentang Saya</h2>
-    <p>Saya Julian, umur 25, kerja di Australia, dan belajar frontend development secara mandiri. Target saya hidup bebas finansial lewat skill teknologi.</p>
+    <p class="leading-relaxed">
+      Saya Julian, umur 25, kerja di Australia sebagai cleaner (WHV) dan sedang transisi ke dunia tech.  
+      Saya belajar frontend development secara mandiri dan punya mimpi untuk hidup bebas lewat skill coding.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section class="max-w-2xl mx-auto px-4 py-10 fade-in">
+    <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+    <ul class="list-disc list-inside space-y-1">
+      <li>HTML, CSS, JavaScript (DOM + LocalStorage)</li>
+      <li>Tailwind CSS</li>
+      <li>Responsive Design</li>
+      <li>Chart.js</li>
+      <li>Git & GitHub</li>
+    </ul>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="max-w-4xl mx-auto px-4 py-10">
+  <section id="projects" class="max-w-4xl mx-auto px-4 py-16 fade-in">
     <h2 class="text-2xl font-semibold mb-4">Proyek Saya</h2>
     <div class="grid md:grid-cols-2 gap-6">
       <!-- Project 1 -->
@@ -45,7 +81,7 @@
   </section>
 
   <!-- Contact -->
-  <section class="max-w-2xl mx-auto px-4 py-10 text-center">
+  <section class="max-w-2xl mx-auto px-4 py-16 text-center fade-in">
     <h2 class="text-2xl font-semibold mb-4">Kontak</h2>
     <p>Email: <a href="mailto:julianfellyco@gmail.com" class="text-blue-400 hover:underline">julianfellyco@gmail.com</a></p>
     <p>GitHub: <a href="https://github.com/julianfellyco" class="text-blue-400 hover:underline" target="_blank">github.com/julianfellyco</a></p>
@@ -53,9 +89,25 @@
   </section>
 
   <!-- Footer -->
-  <footer class="text-center text-sm py-4 text-gray-500">
+  <footer class="text-center text-sm py-6 text-gray-500">
     © 2025 Julian Fellyco. All rights reserved.
   </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const userPref = localStorage.getItem('theme');
+    if (userPref === 'dark') {
+      document.body.classList.add('dark');
+      themeToggle.textContent = '🌞 Light Mode';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      themeToggle.textContent = isDark ? '🌞 Light Mode' : '🌙 Dark Mode';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
 
 </body>
 </html>
